@@ -24,6 +24,6 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_clap" />
+        app:srcCompat="@drawable/ic_clap_outline" />
 
 </android.support.constraint.ConstraintLayout>
