@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Medium Clap Android.iml" filepath="$PROJECT_DIR$/Medium Clap Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clapfab/clapfab.iml" filepath="$PROJECT_DIR$/clapfab/clapfab.iml" />
     </modules>
   </component>
 </project>
