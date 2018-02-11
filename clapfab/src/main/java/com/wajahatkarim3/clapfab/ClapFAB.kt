@@ -9,24 +9,29 @@ import java.util.jar.Attributes
 /**
  * Created by wajah on 2/7/2018.
  */
-class ClapFAB : FrameLayout
+class ClapFAB @JvmOverloads constructor(
+        context: Context?,
+        attributes: AttributeSet? = null,
+        defStyleAttr: Int = 0)
+    : FrameLayout(context, attributes, defStyleAttr)
 {
     val TAG = ClapFAB::class.simpleName
 
-    constructor(context: Context?) : super(context)
+    /*
+    constructor(context: Context) : this(context, null)
     {
         init(context, null)
     }
-
-    constructor(context: Context?, attributes: AttributeSet) : super(context, attributes)
+    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
     {
-        init(context, attributes)
+        init(context, attrs)
     }
 
-    constructor(context: Context?, attributeSet: AttributeSet, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     {
-        init(context, attributeSet)
+        init(context, attrs)
     }
+    */
 
     fun init(context: Context?, attributes: AttributeSet?)
     {
