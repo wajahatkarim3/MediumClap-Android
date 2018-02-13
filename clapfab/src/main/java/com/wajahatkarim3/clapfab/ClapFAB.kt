@@ -9,15 +9,17 @@ import java.util.jar.Attributes
 /**
  * Created by wajah on 2/7/2018.
  */
-class ClapFAB @JvmOverloads constructor(
-        context: Context?,
-        attributes: AttributeSet? = null,
-        defStyleAttr: Int = 0)
-    : FrameLayout(context, attributes, defStyleAttr)
+class ClapFAB
+    /*@JvmOverloads constructor
+    (
+    context: Context?,
+    attributes: AttributeSet? = null,
+    defStyleAttr: Int = 0)*/
+    : FrameLayout
 {
     val TAG = ClapFAB::class.simpleName
 
-    /*
+
     constructor(context: Context) : this(context, null)
     {
         init(context, null)
@@ -31,7 +33,7 @@ class ClapFAB @JvmOverloads constructor(
     {
         init(context, attrs)
     }
-    */
+
 
     fun init(context: Context?, attributes: AttributeSet?)
     {
