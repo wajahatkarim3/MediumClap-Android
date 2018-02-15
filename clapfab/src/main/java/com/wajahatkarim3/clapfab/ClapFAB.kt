@@ -42,7 +42,7 @@ class ClapFAB
 
         // Check for attributes
         attributes?.let {
-            val typedArray = context?.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
+            //val typedArray = context?.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
         }
 
         //
