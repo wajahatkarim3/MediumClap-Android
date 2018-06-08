@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var bi: ActivityMainBinding
     var clapCount = 0
-    var initialCountY = 0f
+    var isTranslateAnimActive = false
+    var isAlphaAnimActive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +44,27 @@ class MainActivity : AppCompatActivity() {
     {
         bi.txtCountCircle.text = "+" + clapCount.toString()
         bi.txtCountCircle.visibility = View.VISIBLE
+        bi.txtCountCircle.y = bi.fabDemoClap.y
+        bi.txtCountCircle.alpha = 1f
+
+        if (isTranslateAnimActive) return
 
         var showAnim = ObjectAnimator.ofFloat(bi.txtCountCircle, "translationY", -200f)
+        showAnim.setDuration(300)
+        showAnim.addListener(MyAnimatorListener{
+            setOnAnimationEnd {
+                isTranslateAnimActive = false
+            }
+        })
+
         var hideAnim = ObjectAnimator.ofFloat(bi.txtCountCircle, "alpha", 0f)
+        hideAnim.duration = 150
+        hideAnim.startDelay = 200
+        hideAnim.addListener(MyAnimatorListener{
+            setOnAnimationEnd {
+                isAlphaAnimActive = false
+            }
+        })
 
         /*
         var hideAnim = bi.txtCountCircle.animate()
@@ -54,25 +73,15 @@ class MainActivity : AppCompatActivity() {
                 .setDuration(150)
                 */
 
+        isTranslateAnimActive = true
+        isAlphaAnimActive = true
+
         var animSet = AnimatorSet()
         animSet.playSequentially(showAnim, hideAnim)
-        animSet.addListener(object : Animator.AnimatorListener{
-            override fun onAnimationRepeat(animation: Animator?) {
-
-            }
-
-            override fun onAnimationEnd(animation: Animator?) {
+        animSet.addListener(MyAnimatorListener{
+            setOnAnimationEnd {
                 resetCircleCountTextView()
             }
-
-            override fun onAnimationCancel(animation: Animator?) {
-
-            }
-
-            override fun onAnimationStart(animation: Animator?) {
-
-            }
-
         })
         animSet.start()
     }
