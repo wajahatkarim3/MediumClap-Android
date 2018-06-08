@@ -16,18 +16,40 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabDemoClap"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="16dp"
-            app:backgroundTint="@android:color/white"
-            app:elevation="4dp"
-            app:fabSize="normal"
+            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_clap_hands_outline"/>
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabDemoClap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:backgroundTint="@android:color/white"
+                app:elevation="4dp"
+                app:fabSize="normal"
+                app:srcCompat="@drawable/ic_clap_hands_outline"/>
+
+            <TextView android:id="@+id/txtCountCircle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:text="+1"
+                android:elevation="7dp"
+                android:visibility="gone"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:background="@drawable/circle_shape_background"/>
+
+
+        </RelativeLayout>
+
+
 
     </android.support.constraint.ConstraintLayout>
 </layout>
