@@ -16,38 +16,40 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabDemoClap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            app:backgroundTint="@android:color/white"
+            app:elevation="4dp"
+            app:fabSize="normal"
+            app:srcCompat="@drawable/ic_clap_hands_outline"/>
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fabDemoClap"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                app:backgroundTint="@android:color/white"
-                app:elevation="4dp"
-                app:fabSize="normal"
-                app:srcCompat="@drawable/ic_clap_hands_outline"/>
+        <TextView
+            android:id="@+id/txtCountCircle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/circle_shape_background"
+            android:elevation="7dp"
+            android:gravity="center"
+            android:text="+1"
+            android:textSize="13sp"
+            android:textColor="@android:color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/fabDemoClap"
+            app:layout_constraintEnd_toEndOf="@+id/fabDemoClap"
+            app:layout_constraintStart_toStartOf="@+id/fabDemoClap"
+            app:layout_constraintTop_toTopOf="@+id/fabDemoClap"
+            tools:visibility="visible" />
 
-            <TextView android:id="@+id/txtCountCircle"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:text="+1"
-                android:elevation="7dp"
-                android:visibility="gone"
-                android:layout_centerHorizontal="true"
-                android:gravity="center"
-                android:textColor="@android:color/white"
-                android:background="@drawable/circle_shape_background"/>
-
-
-        </RelativeLayout>
 
 
 
