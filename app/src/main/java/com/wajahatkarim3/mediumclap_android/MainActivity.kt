@@ -46,11 +46,12 @@ class MainActivity : AppCompatActivity() {
         bi.txtCountCircle.visibility = View.VISIBLE
         bi.txtCountCircle.y = bi.fabDemoClap.y
         bi.txtCountCircle.alpha = 1f
+        
 
         if (isTranslateAnimActive) return
 
         var showAnim = ObjectAnimator.ofFloat(bi.txtCountCircle, "translationY", -200f)
-        showAnim.setDuration(300)
+        showAnim.setDuration(200)
         showAnim.addListener(MyAnimatorListener{
             setOnAnimationEnd {
                 isTranslateAnimActive = false
