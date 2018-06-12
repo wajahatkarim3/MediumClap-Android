@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:id="@+id/txtCountCircle"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:background="@drawable/circle_shape_background"
+    android:elevation="7dp"
+    android:gravity="center"
+    android:text="+1"
+    android:textSize="13sp"
+    android:textColor="@android:color/white"
+    android:visibility="visible"
+    tools:visibility="visible"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" />
