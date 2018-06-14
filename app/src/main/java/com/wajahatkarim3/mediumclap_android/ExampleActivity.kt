@@ -1,5 +1,6 @@
 package com.wajahatkarim3.mediumclap_android
 
+import android.animation.ObjectAnimator
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ import android.widget.TextView
 import com.github.florent37.viewanimator.AnimationBuilder
 import com.github.florent37.viewanimator.ViewAnimator
 import com.wajahatkarim3.mediumclap_android.databinding.ActivityExampleBinding
+import kotlinx.android.synthetic.main.activity_example.*
 import java.util.*
 
 class ExampleActivity : AppCompatActivity() {
@@ -36,6 +38,8 @@ class ExampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bi = DataBindingUtil.setContentView(this, R.layout.activity_example)
 
+        initDots()
+
         bi.fabDemoClap.setOnClickListener {
 
             clapCount++
@@ -49,9 +53,18 @@ class ExampleActivity : AppCompatActivity() {
         }
     }
 
+    fun initDots()
+    {
+        bi.dotsView.setColors(resources.getColor(R.color.colorPrimaryLight), resources.getColor(R.color.colorAccent))
+        bi.dotsView.currentProgress = 0f
+        bi.dotsView.setSize(400, 400)
+    }
+
     fun playActualFabAnim()
     {
         isHideAnimStopped = true
+
+        playDotsAnimation()
 
         // 1. Scale Up FAB Button On Each Click
         fabScaleUpAnimation()
@@ -68,6 +81,16 @@ class ExampleActivity : AppCompatActivity() {
             circleScaleAnimation()
         }
 
+    }
+
+    fun playDotsAnimation()
+    {
+        bi.dotsView.currentProgress = 0f
+
+        var dotsAnimator = ObjectAnimator.ofFloat(dotsView, DotsView.DOTS_PROGRESS, 0f, 1f)
+        dotsAnimator.duration = 500
+        dotsAnimator.interpolator = AccelerateDecelerateInterpolator()
+        dotsAnimator.start()
     }
 
 

@@ -44,5 +44,14 @@
             app:layout_constraintTop_toTopOf="@+id/fabDemoClap"
             tools:visibility="visible" />
 
+        <com.wajahatkarim3.mediumclap_android.DotsView
+            android:id="@+id/dotsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/fabDemoClap"
+            app:layout_constraintEnd_toEndOf="@+id/fabDemoClap"
+            app:layout_constraintStart_toStartOf="@+id/fabDemoClap"
+            app:layout_constraintTop_toTopOf="@+id/fabDemoClap"/>
+
     </android.support.constraint.ConstraintLayout>
 </layout>
