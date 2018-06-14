@@ -3,6 +3,8 @@ package com.wajahatkarim3.mediumclap_android
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
@@ -12,6 +14,7 @@ import android.widget.TextView
 import com.github.florent37.viewanimator.AnimationBuilder
 import com.github.florent37.viewanimator.ViewAnimator
 import com.wajahatkarim3.mediumclap_android.databinding.ActivityExampleBinding
+import java.util.*
 
 class ExampleActivity : AppCompatActivity() {
 
@@ -27,6 +30,7 @@ class ExampleActivity : AppCompatActivity() {
     var circleShowMoveUpAnimation_2: ViewAnimator? = null
     var circleScaleAnimation_3: ViewAnimator? = null
     var circleHideMoveAnimation_4: ViewAnimator? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,20 +51,20 @@ class ExampleActivity : AppCompatActivity() {
 
     fun playActualFabAnim()
     {
+        isHideAnimStopped = true
+
         // 1. Scale Up FAB Button On Each Click
         fabScaleUpAnimation()
 
         // 2. Show and move count text circle from button
         // If circle is not shown on top, then move up and show circle
-        if (circleShowMoveUpAnimation_2 == null && !isCirlceAvailable)
+        if (!isCirlceAvailable)
         {
-            circleHideMoveAnimation_4?.cancel()
             circleShowMoveUpAnimation()
         }
         // Else, scale up the counter text
         else
         {
-            circleHideMoveAnimation_4?.cancel()
             circleScaleAnimation()
         }
 
@@ -96,7 +100,9 @@ class ExampleActivity : AppCompatActivity() {
                 .onStop {
                     isCirlceAvailable = true
                     //circleShowMoveUpAnimation_2 = null
-                    circleHideMoveAnimation()
+                    //circleHideMoveAnimation()
+                    isHideAnimStopped = false
+                    hideAnimTimer.start()
                 }
                 .start()
     }
@@ -112,10 +118,32 @@ class ExampleActivity : AppCompatActivity() {
                 .duration(70)
                 .onStop {
                     // Hide Circle Anim
-                    circleScaleAnimation_3 = null
-                    circleHideMoveAnimation()
+                    //circleScaleAnimation_3 = null
+                    //circleHideMoveAnimation()
+                    isHideAnimStopped = false
+                    hideAnimTimer.start()
                 }
                 .start()
+    }
+
+    var hideAnimRunnable = Runnable {
+        runOnUiThread {
+            circleHideMoveAnimation()
+        }
+    }
+
+    var isHideAnimStopped = false
+    var hideAnimTimer = object : CountDownTimer(800, 50){
+        override fun onTick(millisUntilFinished: Long) {
+            if (isHideAnimStopped)
+                cancel()
+        }
+
+        override fun onFinish() {
+            runOnUiThread {
+                circleHideMoveAnimation()
+            }
+        }
     }
 
     fun circleHideMoveAnimation()
@@ -125,12 +153,12 @@ class ExampleActivity : AppCompatActivity() {
                 .animate(bi.txtCountCircle)
                 .alpha(1f, 0f)
                 .dp().translationY( -70f, -140f)
-                .duration(500)
-                .startDelay(1500)
+                .duration(400)
+                //.startDelay(1500)
                 .onStop {
                     isCirlceAvailable = false
-                    circleShowMoveUpAnimation_2 = null
-                    circleHideMoveAnimation_4 = null
+                    //circleShowMoveUpAnimation_2 = null
+                    //circleHideMoveAnimation_4 = null
                 }
                 .start()
     }
