@@ -52,13 +52,15 @@ class ExampleActivity : AppCompatActivity() {
 
         // 2. Show and move count text circle from button
         // If circle is not shown on top, then move up and show circle
-        if (circleShowMoveUpAnimation_2 == null)
+        if (circleShowMoveUpAnimation_2 == null && !isCirlceAvailable)
         {
+            circleHideMoveAnimation_4?.cancel()
             circleShowMoveUpAnimation()
         }
         // Else, scale up the counter text
         else
         {
+            circleHideMoveAnimation_4?.cancel()
             circleScaleAnimation()
         }
 
@@ -92,6 +94,7 @@ class ExampleActivity : AppCompatActivity() {
                 .alpha(0f, 1f)
                 .duration(500)
                 .onStop {
+                    isCirlceAvailable = true
                     //circleShowMoveUpAnimation_2 = null
                     circleHideMoveAnimation()
                 }
@@ -100,9 +103,6 @@ class ExampleActivity : AppCompatActivity() {
 
     fun circleScaleAnimation()
     {
-        // 0. Cancel hiding animation,
-        circleHideMoveAnimation_4?.cancel()
-
         circleScaleAnimation_3 = ViewAnimator
                 .animate(bi.txtCountCircle)
                 .scale(1f, 1.2f)
@@ -120,13 +120,15 @@ class ExampleActivity : AppCompatActivity() {
 
     fun circleHideMoveAnimation()
     {
+        circleHideMoveAnimation_4?.cancel()
         circleHideMoveAnimation_4 = ViewAnimator
                 .animate(bi.txtCountCircle)
                 .alpha(1f, 0f)
                 .dp().translationY( -70f, -140f)
                 .duration(500)
-                .startDelay(500)
+                .startDelay(1500)
                 .onStop {
+                    isCirlceAvailable = false
                     circleShowMoveUpAnimation_2 = null
                     circleHideMoveAnimation_4 = null
                 }
