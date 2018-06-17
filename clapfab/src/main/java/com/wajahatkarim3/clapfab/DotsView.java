@@ -4,7 +4,6 @@ import android.animation.ArgbEvaluator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.util.Property;
 import android.view.View;
@@ -164,7 +163,7 @@ public class DotsView extends View {
         }
     }
 
-    public void setColors(@ColorInt int primaryColor, @ColorInt int secondaryColor) {
+    public void setColors(int primaryColor, int secondaryColor) {
         COLOR_1 = primaryColor;
         COLOR_2 = secondaryColor;
         COLOR_3 = primaryColor;

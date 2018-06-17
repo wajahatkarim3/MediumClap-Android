@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.wajahatkarim3.clapfab.DotsView"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -44,7 +44,7 @@
             app:layout_constraintTop_toTopOf="@+id/fabDemoClap"
             tools:visibility="visible" />
 
-        <com.wajahatkarim3.mediumclap_android.DotsView
+        <com.wajahatkarim3.clapfab.DotsView
             android:id="@+id/dotsView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,6 +52,11 @@
             app:layout_constraintEnd_toEndOf="@+id/fabDemoClap"
             app:layout_constraintStart_toStartOf="@+id/fabDemoClap"
             app:layout_constraintTop_toTopOf="@+id/fabDemoClap"/>
+
+
+        <com.wajahatkarim3.clapfab.ClapFAB
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></com.wajahatkarim3.clapfab.ClapFAB>
 
     </android.support.constraint.ConstraintLayout>
 </layout>

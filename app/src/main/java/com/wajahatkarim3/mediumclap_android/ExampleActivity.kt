@@ -14,6 +14,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import com.github.florent37.viewanimator.AnimationBuilder
 import com.github.florent37.viewanimator.ViewAnimator
+import com.wajahatkarim3.clapfab.DotsView
 import com.wajahatkarim3.mediumclap_android.databinding.ActivityExampleBinding
 import kotlinx.android.synthetic.main.activity_example.*
 import java.util.*
@@ -33,6 +34,7 @@ class ExampleActivity : AppCompatActivity() {
     var circleScaleAnimation_3: ViewAnimator? = null
     var circleHideMoveAnimation_4: ViewAnimator? = null
 
+    lateinit var dotsView: DotsView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +57,10 @@ class ExampleActivity : AppCompatActivity() {
 
     fun initDots()
     {
-        bi.dotsView.setColors(resources.getColor(R.color.colorPrimaryLight), resources.getColor(R.color.colorAccent))
-        bi.dotsView.currentProgress = 0f
-        bi.dotsView.setSize(400, 400)
+        dotsView = findViewById(R.id.dotsView)
+        dotsView.setColors(resources.getColor(R.color.colorPrimaryLight), resources.getColor(R.color.colorAccent))
+        dotsView.currentProgress = 0f
+        dotsView.setSize(400, 400)
     }
 
     fun playActualFabAnim()
@@ -85,7 +88,7 @@ class ExampleActivity : AppCompatActivity() {
 
     fun playDotsAnimation()
     {
-        bi.dotsView.currentProgress = 0f
+        dotsView.currentProgress = 0f
 
         var dotsAnimator = ObjectAnimator.ofFloat(dotsView, DotsView.DOTS_PROGRESS, 0f, 1f)
         dotsAnimator.duration = 500
