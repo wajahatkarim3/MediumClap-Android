@@ -186,6 +186,7 @@ class ExampleActivity : AppCompatActivity() {
                 .start()
     }
 
+    /*
     fun animateClapFab()
     {
         if (hideAnimator != null)
@@ -289,4 +290,6 @@ class ExampleActivity : AppCompatActivity() {
 
 
     }
+    */
+
 }

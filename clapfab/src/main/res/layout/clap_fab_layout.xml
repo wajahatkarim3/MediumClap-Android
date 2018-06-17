@@ -1,12 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabDemoClap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fabSize="normal" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_centerInParent="true"
+        app:backgroundTint="@android:color/white"
+        app:elevation="4dp"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_clap_hands_outline"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/txtCountCircle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_shape_background"
+        android:elevation="7dp"
+        android:gravity="center"
+        android:text="+1"
+        android:textSize="13sp"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <com.wajahatkarim3.mediumclap_android.DotsView
+        android:id="@+id/dotsView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>
