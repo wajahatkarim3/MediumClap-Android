@@ -53,10 +53,5 @@
             app:layout_constraintStart_toStartOf="@+id/fabDemoClap"
             app:layout_constraintTop_toTopOf="@+id/fabDemoClap"/>
 
-
-        <com.wajahatkarim3.clapfab.ClapFAB
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></com.wajahatkarim3.clapfab.ClapFAB>
-
     </android.support.constraint.ConstraintLayout>
 </layout>

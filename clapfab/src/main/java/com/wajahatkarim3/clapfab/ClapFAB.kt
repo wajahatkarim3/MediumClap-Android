@@ -6,9 +6,11 @@ import android.os.CountDownTimer
 import android.support.design.widget.FloatingActionButton
 import android.util.AttributeSet
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.FrameLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.github.florent37.viewanimator.ViewAnimator
 
@@ -51,13 +53,13 @@ class ClapFAB : FrameLayout
     }
 
 
-    fun init(context: Context?, attributes: AttributeSet?)
+    fun init(context: Context, attributes: AttributeSet?)
     {
         // Getting the views
-        inflate(context, R.layout.clap_fab_layout, this)
-        txtCountCircle = findViewById<TextView>(R.id.txtCountCircle)
-        fabDemoClap = findViewById(R.id.fabDemoClap)
-        dotsView = findViewById(R.id.dotsView)
+        var v = inflate(context, R.layout.clap_fab_layout, this)
+        txtCountCircle = v.findViewById<TextView>(R.id.txtCountCircle)
+        fabDemoClap = v.findViewById(R.id.fabDemoClap)
+        dotsView = v.findViewById(R.id.dotsView)
 
         // Setting Listener
         fabDemoClap.setOnClickListener {
@@ -145,6 +147,7 @@ class ClapFAB : FrameLayout
     private fun circleShowMoveUpAnimation()
     {
         txtCountCircle.visibility = View.VISIBLE
+        txtCountCircle.elevation = 7f
         txtCountCircle.y = fabDemoClap.y + fabDemoClap.height/2
         txtCountCircle.alpha = 0f
         circleShowMoveUpAnimation_2 = ViewAnimator

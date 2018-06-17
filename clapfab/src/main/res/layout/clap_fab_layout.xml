@@ -6,18 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabDemoClap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_centerInParent="true"
-        app:backgroundTint="@android:color/white"
-        app:elevation="4dp"
-        app:fabSize="normal"
-        app:srcCompat="@drawable/ic_clap_hands_outline"/>
-
     <TextView
         android:id="@+id/txtCountCircle"
         android:layout_width="40dp"
@@ -32,7 +20,19 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
-    <com.wajahatkarim3.mediumclap_android.DotsView
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabDemoClap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:backgroundTint="@android:color/white"
+        tools:backgroundTint="@color/colorClapIcon"
+        app:elevation="4dp"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_clap_hands_outline"/>
+
+
+    <com.wajahatkarim3.clapfab.DotsView
         android:id="@+id/dotsView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

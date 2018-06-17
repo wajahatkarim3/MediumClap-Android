@@ -51,6 +51,10 @@
             tools:visibility="visible" />
 
 
+        <com.wajahatkarim3.clapfab.ClapFAB
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="140dp"></com.wajahatkarim3.clapfab.ClapFAB>
 
 
     </android.support.constraint.ConstraintLayout>
