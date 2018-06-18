@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.CountDownTimer
 import android.support.design.widget.FloatingActionButton
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
@@ -17,7 +18,7 @@ import com.github.florent37.viewanimator.ViewAnimator
 /**
  * Created by wajah on 2/7/2018.
  */
-class ClapFAB : FrameLayout
+class ClapFAB : RelativeLayout
 {
     val TAG = ClapFAB::class.simpleName
 
@@ -39,49 +40,45 @@ class ClapFAB : FrameLayout
 
 
     constructor(context: Context) : this(context, null)
-    {
-        init(context, null)
-    }
+
     constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-    {
-        init(context, attrs)
-    }
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
     {
         init(context, attrs)
     }
 
-
     fun init(context: Context, attributes: AttributeSet?)
     {
-        // Getting the views
-        var v = inflate(context, R.layout.clap_fab_layout, this)
-        txtCountCircle = v.findViewById<TextView>(R.id.txtCountCircle)
-        fabDemoClap = v.findViewById(R.id.fabDemoClap)
-        dotsView = v.findViewById(R.id.dotsView)
+        attributes?.let { attrs ->
+            // Getting the views
+            inflate(context, R.layout.clap_fab_layout, this)
+            txtCountCircle = findViewById<TextView>(R.id.txtCountCircle)
+            fabDemoClap = findViewById(R.id.fabDemoClap)
+            dotsView = findViewById(R.id.dotsView)
 
-        // Setting Listener
-        fabDemoClap.setOnClickListener {
-            clapCount++
-            txtCountCircle.text = "+$clapCount"
-            if (clapCount > 0)
-            {
-                fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
+            // Setting Listener
+            fabDemoClap.setOnClickListener {
+                clapCount++
+                txtCountCircle.text = "+$clapCount"
+                if (clapCount > 0)
+                {
+                    fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
+                }
+
+                playActualFabAnim()
             }
 
-            playActualFabAnim()
+            // Set Default Values Here
+
+            // Check for attributes
+            //attributes?.let {
+            //    val typedArray = context?.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
+            //}
+
+            // Init Animations
+            initAnimation()
         }
-
-        // Set Default Values Here
-
-        // Check for attributes
-        //attributes?.let {
-        //    val typedArray = context?.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
-        //}
-
-        // Init Animations
-        initAnimation()
     }
 
     private fun initAnimation()
@@ -147,7 +144,7 @@ class ClapFAB : FrameLayout
     private fun circleShowMoveUpAnimation()
     {
         txtCountCircle.visibility = View.VISIBLE
-        txtCountCircle.elevation = 7f
+        //txtCountCircle.elevation = 7f
         txtCountCircle.y = fabDemoClap.y + fabDemoClap.height/2
         txtCountCircle.alpha = 0f
         circleShowMoveUpAnimation_2 = ViewAnimator
