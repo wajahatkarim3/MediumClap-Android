@@ -26,17 +26,18 @@ class ClapFAB : RelativeLayout
     private var clapCount = 0
     private var isCirlceAvailable = false
     private var isHideAnimStopped = false
+    private var hidingStarted = false
 
     // Animations
-    var fabScaleAnimation_1: ViewAnimator? = null
-    var circleShowMoveUpAnimation_2: ViewAnimator? = null
-    var circleScaleAnimation_3: ViewAnimator? = null
-    var circleHideMoveAnimation_4: ViewAnimator? = null
+    private var fabScaleAnimation_1: ViewAnimator? = null
+    private var circleShowMoveUpAnimation_2: ViewAnimator? = null
+    private var circleScaleAnimation_3: ViewAnimator? = null
+    private var circleHideMoveAnimation_4: ViewAnimator? = null
 
     // Views
-    lateinit var txtCountCircle: TextView
-    lateinit var dotsView: DotsView
-    lateinit var fabDemoClap: FloatingActionButton
+    private lateinit var txtCountCircle: TextView
+    private lateinit var dotsView: DotsView
+    private lateinit var fabDemoClap: FloatingActionButton
 
 
     constructor(context: Context) : this(context, null)
@@ -48,7 +49,7 @@ class ClapFAB : RelativeLayout
         init(context, attrs)
     }
 
-    fun init(context: Context, attributes: AttributeSet?)
+    private fun init(context: Context, attributes: AttributeSet?)
     {
         attributes?.let { attrs ->
             // Getting the views
@@ -143,8 +144,9 @@ class ClapFAB : RelativeLayout
 
     private fun circleShowMoveUpAnimation()
     {
+        if (circleShowMoveUpAnimation_2 != null) return
+
         txtCountCircle.visibility = View.VISIBLE
-        //txtCountCircle.elevation = 7f
         txtCountCircle.y = fabDemoClap.y + fabDemoClap.height/2
         txtCountCircle.alpha = 0f
         circleShowMoveUpAnimation_2 = ViewAnimator
@@ -155,7 +157,7 @@ class ClapFAB : RelativeLayout
                 .duration(500)
                 .onStop {
                     isCirlceAvailable = true
-                    //circleShowMoveUpAnimation_2 = null
+                    circleShowMoveUpAnimation_2 = null
                     //circleHideMoveAnimation()
                     isHideAnimStopped = false
                     hideAnimTimer.start()
@@ -197,6 +199,7 @@ class ClapFAB : RelativeLayout
 
     private fun circleHideMoveAnimation()
     {
+        if (hidingStarted) return
         circleHideMoveAnimation_4?.cancel()
         circleHideMoveAnimation_4 = ViewAnimator
                 .animate(txtCountCircle)
@@ -204,7 +207,11 @@ class ClapFAB : RelativeLayout
                 .dp().translationY( -70f, -140f)
                 .duration(400)
                 //.startDelay(1500)
+                .onStart {
+                    hidingStarted = true
+                }
                 .onStop {
+                    hidingStarted = false
                     isCirlceAvailable = false
                     //circleShowMoveUpAnimation_2 = null
                     //circleHideMoveAnimation_4 = null
