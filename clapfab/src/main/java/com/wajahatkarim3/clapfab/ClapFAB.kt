@@ -17,6 +17,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.github.florent37.viewanimator.ViewAnimator
+import kotlin.math.max
 
 /**
  * Created by wajah on 2/7/2018.
@@ -43,9 +44,13 @@ class ClapFAB : RelativeLayout
     private lateinit var fabDemoClap: FloatingActionButton
 
     /**
-     * Maximum Claps Count
+     * Maximum Claps Count. Can't be less than 1
      */
     var maxCount: Int = 50
+    set(value) {
+        if (value < 1)
+            maxCount = 1
+    }
 
     /**
      * Default Icon Resource ID
@@ -102,26 +107,56 @@ class ClapFAB : RelativeLayout
                 txtCountCircle.text = "+$clapCount"
                 if (clapCount > 0)
                 {
-                    fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
-                    ImageViewCompat.setImageTintList(
-                            fabDemoClap,
-                            ColorStateList.valueOf(Color.RED)
-                    );
+                    fabDemoClap.setImageResource(filledIconResId)
+                    ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(filledIconColorRes))
+                }
+
+                if (clapCount >= maxCount)
+                {
+                    clapCount = maxCount
+                    return@setOnClickListener
                 }
 
                 playActualFabAnim()
             }
 
             // Set Default Values Here
+            maxCount = 50
+            defaultIconResId = R.drawable.ic_clap_hands_outline
+            filledIconResId = R.drawable.ic_clap_hands_filled
+            defaultIconColorRes = R.color.colorClapIcon
+            filledIconColorRes = R.color.colorClapIcon
+            countCircleColorRes = R.color.colorClapIcon
+            countTextColorRes = android.R.color.white
 
             // Check for attributes
-            //attributes?.let {
-            //    val typedArray = context?.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
-            //}
+            val typedArray = context.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
+            typedArray.apply {
+                maxCount = getInt(R.styleable.clap_fab_cfMaxClapCount, 50)
+                defaultIconResId = getResourceId(R.styleable.clap_fab_cfDefaultIcon, R.drawable.ic_clap_hands_outline)
+                filledIconResId = getResourceId(R.styleable.clap_fab_cfFilledIcon, R.drawable.ic_clap_hands_filled)
+                defaultIconColorRes = getResourceId(R.styleable.clap_fab_cfDefaultIconColor, R.color.colorClapIcon)
+                filledIconColorRes = getResourceId(R.styleable.clap_fab_cfFilledIconColor, R.color.colorClapIcon)
+                countCircleColorRes = getResourceId(R.styleable.clap_fab_cfCountCircleColor, R.color.colorClapIcon)
+                countTextColorRes = getResourceId(R.styleable.clap_fab_cfCountTextColor, R.color.colorClapIcon)
+            }
+
+            // Apply Attributes
+            applyAttributes()
 
             // Init Animations
             initAnimation()
+
+            typedArray?.recycle()
         }
+    }
+
+    private fun applyAttributes()
+    {
+        fabDemoClap.setImageResource(defaultIconResId)
+        ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(defaultIconColorRes))
+        txtCountCircle.setTextColor(countTextColorRes)
+        txtCountCircle.setBackgroundColor(countCircleColorRes)
     }
 
     private fun initAnimation()

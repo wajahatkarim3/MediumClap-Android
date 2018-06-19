@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="clap_fab">
-        
+        <attr name="cfMaxClapCount" format="integer"/>
+        <attr name="cfDefaultIcon" format="reference"/>
+        <attr name="cfFilledIcon" format="reference"/>
+        <attr name="cfDefaultIconColor" format="reference"/>
+        <attr name="cfFilledIconColor" format="reference"/>
+        <attr name="cfCountCircleColor" format="reference"/>
+        <attr name="cfCountTextColor" format="reference"/>
     </declare-styleable>
 </resources>
