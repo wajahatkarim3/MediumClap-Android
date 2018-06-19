@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="clap_fab">
-        <attr name="cfMaxClapCount" format="integer"/>
-        <attr name="cfDefaultIcon" format="reference"/>
-        <attr name="cfFilledIcon" format="reference"/>
-        <attr name="cfDefaultIconColor" format="reference"/>
-        <attr name="cfFilledIconColor" format="reference"/>
-        <attr name="cfCountCircleColor" format="reference"/>
-        <attr name="cfCountTextColor" format="reference"/>
+        <attr name="cf_max_clap_count" format="integer"/>
+        <attr name="cf_default_icon" format="reference"/>
+        <attr name="cf_filled_icon" format="reference"/>
+        <attr name="cf_default_icon_color" format="reference"/>
+        <attr name="cf_filled_icon_color" format="reference"/>
+        <attr name="cf_count_circle_color" format="reference"/>
+        <attr name="cf_count_text_color" format="reference"/>
     </declare-styleable>
 </resources>
