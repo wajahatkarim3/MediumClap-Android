@@ -50,14 +50,21 @@
             app:layout_constraintTop_toTopOf="@+id/fabDemoClap"
             tools:visibility="visible" />
 
-
         <com.wajahatkarim3.clapfab.ClapFAB
             android:id="@+id/clapFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="140dp"
+            app:cf_max_clap_count="20"
+            app:cf_default_icon="@drawable/ic_star_border_black_24dp"
+            app:cf_filled_icon="@drawable/ic_star_black_24dp"
+            app:cf_default_icon_color="@color/colorAccent"
+            app:cf_filled_icon_color="@color/dotsColor2"
+            app:cf_count_text_color="@color/white_color"
             app:cf_count_circle_color="@color/colorAccent"
-            app:cf_max_clap_count="5"/>
+            app:cf_dots_1_color="@android:color/holo_green_dark"
+            app:cf_dots_2_color="@android:color/tertiary_text_dark"
+            />
 
 
     </android.support.constraint.ConstraintLayout>

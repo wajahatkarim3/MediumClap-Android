@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
             onClapButtonClick()
         }
         bi.fabDemoClap.visibility = View.GONE
+
     }
 
     fun onClapButtonClick()

@@ -28,7 +28,7 @@ import kotlin.math.max
  */
 class ClapFAB : RelativeLayout
 {
-    val TAG = ClapFAB::class.simpleName
+    private val TAG = ClapFAB::class.simpleName
 
     // Data Values
     private var clapCount = 0
@@ -53,8 +53,8 @@ class ClapFAB : RelativeLayout
     var maxCount: Int = 50
     set(value) {
         if (value < 1)
-            maxCount = 1
-        maxCount = value
+            field = 1
+        field = value
     }
 
     /**
@@ -87,6 +87,16 @@ class ClapFAB : RelativeLayout
      */
     var countTextColorRes = R.color.white_color
 
+    /**
+     * Dots One Color Resource
+     */
+    var dots1ColorRes = R.color.dotsColor1
+
+    /**
+     * Dots Two Color Resource
+     */
+    var dots2ColorRes = R.color.dotsColor2
+
 
     constructor(context: Context) : this(context, null)
 
@@ -109,18 +119,19 @@ class ClapFAB : RelativeLayout
             // Setting Listener
             fabDemoClap.setOnClickListener {
                 clapCount++
-                txtCountCircle.text = "+$clapCount"
                 if (clapCount > 0)
                 {
                     fabDemoClap.setImageDrawable(context.getDrawable(filledIconResId))
                     ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(ContextCompat.getColor(context, filledIconColorRes)))
                 }
 
-                if (clapCount >= maxCount)
+                if (clapCount > maxCount)
                 {
                     clapCount = maxCount
                     return@setOnClickListener
                 }
+
+                txtCountCircle.text = "+$clapCount"
 
                 playActualFabAnim()
             }
@@ -138,12 +149,14 @@ class ClapFAB : RelativeLayout
             val typedArray = context.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
             typedArray.apply {
                 maxCount = getInt(R.styleable.clap_fab_cf_max_clap_count, 50)
-                defaultIconResId = getResourceId(R.styleable.clap_fab_cf_default_icon_color, R.drawable.ic_clap_hands_outline)
+                defaultIconResId = getResourceId(R.styleable.clap_fab_cf_default_icon, R.drawable.ic_clap_hands_outline)
                 filledIconResId = getResourceId(R.styleable.clap_fab_cf_filled_icon, R.drawable.ic_clap_hands_filled)
                 defaultIconColorRes = getResourceId(R.styleable.clap_fab_cf_default_icon_color, R.color.colorClapIcon)
                 filledIconColorRes = getResourceId(R.styleable.clap_fab_cf_filled_icon_color, R.color.colorClapIcon)
                 countCircleColorRes = getResourceId(R.styleable.clap_fab_cf_count_circle_color, R.color.colorClapIcon)
-                countTextColorRes = getResourceId(R.styleable.clap_fab_cf_count_text_color, R.color.colorClapIcon)
+                countTextColorRes = getResourceId(R.styleable.clap_fab_cf_count_text_color, R.color.white_color)
+                dots1ColorRes = getResourceId(R.styleable.clap_fab_cf_dots_1_color, R.color.dotsColor1)
+                dots2ColorRes = getResourceId(R.styleable.clap_fab_cf_dots_2_color, R.color.dotsColor2)
             }
 
             // Apply Attributes
@@ -163,10 +176,10 @@ class ClapFAB : RelativeLayout
         txtCountCircle.setTextColor(ContextCompat.getColor(context, countTextColorRes))
         //txtCountCircle.setBackgroundColor(context.resources.getColor(countCircleColorRes))
 
-        // Circle Count Shape
+        // Circle Count
         var shapeDrawable = context.getDrawable(R.drawable.circle_shape_background)
         var ovalShape = shapeDrawable
-        ovalShape.setColorFilter(ContextCompat.getColor(context, countCircleColorRes), PorterDuff.Mode.DST_ATOP)
+        ovalShape.setColorFilter(ContextCompat.getColor(context, countCircleColorRes), PorterDuff.Mode.SRC_ATOP)
         txtCountCircle.background = shapeDrawable
         txtCountCircle.setTextColor(ContextCompat.getColor(context, countTextColorRes))
         txtCountCircle.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, countTextColorRes)))
@@ -180,7 +193,7 @@ class ClapFAB : RelativeLayout
 
     private fun initDotsAnim()
     {
-        dotsView.setColors(resources.getColor(R.color.dotsColor1), resources.getColor(R.color.dotsColor2))
+        dotsView.setColors(ContextCompat.getColor(context, dots1ColorRes), ContextCompat.getColor(context, dots2ColorRes))
         dotsView.currentProgress = 0f
         dotsView.setSize(400, 400)
     }
@@ -275,7 +288,7 @@ class ClapFAB : RelativeLayout
                 .start()
     }
 
-    var hideAnimTimer = object : CountDownTimer(800, 50){
+    private var hideAnimTimer = object : CountDownTimer(800, 50){
         override fun onTick(millisUntilFinished: Long) {
             if (isHideAnimStopped)
                 cancel()

@@ -8,5 +8,7 @@
         <attr name="cf_filled_icon_color" format="reference"/>
         <attr name="cf_count_circle_color" format="reference"/>
         <attr name="cf_count_text_color" format="reference"/>
+        <attr name="cf_dots_1_color" format="reference"/>
+        <attr name="cf_dots_2_color" format="reference"/>
     </declare-styleable>
 </resources>
