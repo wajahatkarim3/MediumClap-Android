@@ -4,6 +4,9 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.shapes.OvalShape
 import android.os.CountDownTimer
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.widget.ImageViewCompat
@@ -107,8 +110,8 @@ class ClapFAB : RelativeLayout
                 txtCountCircle.text = "+$clapCount"
                 if (clapCount > 0)
                 {
-                    fabDemoClap.setImageResource(filledIconResId)
-                    ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(filledIconColorRes))
+                    fabDemoClap.setImageDrawable(context.getDrawable(filledIconResId))
+                    ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(context.resources.getColor(filledIconColorRes)))
                 }
 
                 if (clapCount >= maxCount)
@@ -127,7 +130,7 @@ class ClapFAB : RelativeLayout
             defaultIconColorRes = R.color.colorClapIcon
             filledIconColorRes = R.color.colorClapIcon
             countCircleColorRes = R.color.colorClapIcon
-            countTextColorRes = android.R.color.white
+            countTextColorRes = R.color.white_color
 
             // Check for attributes
             val typedArray = context.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
@@ -153,10 +156,16 @@ class ClapFAB : RelativeLayout
 
     private fun applyAttributes()
     {
-        fabDemoClap.setImageResource(defaultIconResId)
-        ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(defaultIconColorRes))
-        txtCountCircle.setTextColor(countTextColorRes)
-        txtCountCircle.setBackgroundColor(countCircleColorRes)
+        fabDemoClap.setImageDrawable(context.getDrawable(defaultIconResId))
+        ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(context.resources.getColor(defaultIconColorRes)))
+        txtCountCircle.setTextColor((countTextColorRes))
+        //txtCountCircle.setBackgroundColor(context.resources.getColor(countCircleColorRes))
+
+        // Circle Count Shape
+        var shapeDrawable = context.getDrawable(R.drawable.circle_shape_background)
+        var ovalShape = shapeDrawable
+        ovalShape.setColorFilter(context.resources.getColor(countCircleColorRes), PorterDuff.Mode.DST_ATOP)
+        txtCountCircle.background = shapeDrawable
     }
 
     private fun initAnimation()

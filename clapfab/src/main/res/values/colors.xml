@@ -3,4 +3,5 @@
     <color name="colorClapIcon">#4343d7</color>
     <color name="dotsColor2">#6677d3</color>
     <color name="dotsColor1">#FF4081</color>
+    <color name="white_color">#FFFFFF</color>
 </resources>
