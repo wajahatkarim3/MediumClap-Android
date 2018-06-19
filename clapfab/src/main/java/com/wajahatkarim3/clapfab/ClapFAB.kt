@@ -97,6 +97,11 @@ class ClapFAB : RelativeLayout
      */
     var dots2ColorRes = R.color.dotsColor2
 
+    /**
+     * The Clap Listener
+     */
+    var clapListener: OnClapListener? = null
+
 
     constructor(context: Context) : this(context, null)
 
@@ -128,9 +133,11 @@ class ClapFAB : RelativeLayout
                 if (clapCount > maxCount)
                 {
                     clapCount = maxCount
+                    clapListener?.onFabClapped(this, clapCount, true)
                     return@setOnClickListener
                 }
 
+                clapListener?.onFabClapped(this, clapCount, false)
                 txtCountCircle.text = "+$clapCount"
 
                 playActualFabAnim()
@@ -321,5 +328,9 @@ class ClapFAB : RelativeLayout
                     //circleHideMoveAnimation_4 = null
                 }
                 .start()
+    }
+
+    interface OnClapListener {
+        fun onFabClapped(clapFab: ClapFAB, count: Int, isMaxReached: Boolean)
     }
 }

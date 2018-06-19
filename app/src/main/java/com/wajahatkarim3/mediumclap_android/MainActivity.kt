@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
+import android.widget.Toast
+import com.wajahatkarim3.clapfab.ClapFAB
 import com.wajahatkarim3.mediumclap_android.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +29,11 @@ class MainActivity : AppCompatActivity() {
         }
         bi.fabDemoClap.visibility = View.GONE
 
+        bi.clapFab.clapListener = object : ClapFAB.OnClapListener{
+            override fun onFabClapped(clapFab: ClapFAB, count: Int, isMaxReached: Boolean) {
+                Toast.makeText(this@MainActivity, "Clapped: $count with $isMaxReached" , Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     fun onClapButtonClick()
