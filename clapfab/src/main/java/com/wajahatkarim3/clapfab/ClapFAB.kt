@@ -2,8 +2,11 @@ package com.wajahatkarim3.clapfab
 
 import android.animation.ObjectAnimator
 import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.CountDownTimer
 import android.support.design.widget.FloatingActionButton
+import android.support.v4.widget.ImageViewCompat
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +42,41 @@ class ClapFAB : RelativeLayout
     private lateinit var dotsView: DotsView
     private lateinit var fabDemoClap: FloatingActionButton
 
+    /**
+     * Maximum Claps Count
+     */
+    var maxCount: Int = 50
+
+    /**
+     * Default Icon Resource ID
+     */
+    var defaultIconResId: Int = R.drawable.ic_clap_hands_outline
+
+    /**
+     * Filled Icon Resource ID
+     */
+    var filledIconResId: Int = R.drawable.ic_clap_hands_filled
+
+    /**
+     * Default Icon Color Resource
+     */
+    var defaultIconColorRes = R.color.colorClapIcon
+
+    /**
+     * Filled Icon Color Resource
+     */
+    var filledIconColorRes = R.color.colorClapIcon
+
+    /**
+     * Count Circle Background Color Resource
+     */
+    var countCircleColorRes = R.color.colorClapIcon
+
+    /**
+     * Count Circle Text Color Resource
+     */
+    var countTextColorRes = android.R.color.white
+
 
     constructor(context: Context) : this(context, null)
 
@@ -65,6 +103,10 @@ class ClapFAB : RelativeLayout
                 if (clapCount > 0)
                 {
                     fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
+                    ImageViewCompat.setImageTintList(
+                            fabDemoClap,
+                            ColorStateList.valueOf(Color.RED)
+                    );
                 }
 
                 playActualFabAnim()
