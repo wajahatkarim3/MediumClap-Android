@@ -1,7 +1,7 @@
 # MediumClap-Android
 The Medium's Clapping Effect developed in Android
 
-![](https://raw.githubusercontent.com/wajahatkarim3/MediumClap-Android/master/art/demo.gif)
+![](https://raw.githubusercontent.com/wajahatkarim3/MediumClap-Android/master/art/demo_2.gif)
 
 ### How-To Article
 Coming soon!
