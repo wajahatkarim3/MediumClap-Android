@@ -5,7 +5,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 ext {
 
-    bintrayRepo = " ClapFab"
+    bintrayRepo = "ClapFab"
     bintrayName = "com.wajahatkarim3.clapfab"
 
     publishedGroupId = 'com.wajahatkarim3.clapfab'
