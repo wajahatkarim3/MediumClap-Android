@@ -24,7 +24,8 @@ import com.github.florent37.viewanimator.ViewAnimator
 import kotlin.math.max
 
 /**
- * Created by wajah on 2/7/2018.
+ * Created by Wajahat Karim on 2/7/2018.
+ * @author Wajahat Karim
  */
 class ClapFAB : RelativeLayout
 {
