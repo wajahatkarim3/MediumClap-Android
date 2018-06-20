@@ -4,4 +4,8 @@
     <color name="colorPrimaryLight">#6677d3</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <color name="nedium_green_color">#028875</color>
+
 </resources>
