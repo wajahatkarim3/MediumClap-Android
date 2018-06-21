@@ -1,17 +1,17 @@
-# MediumClap-Android
+# 👏 MediumClap-Android
 [ ![Download](https://api.bintray.com/packages/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/images/download.svg) ](https://bintray.com/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/_latestVersion) [![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21) [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/wajahatkarim3)
 
 A Custom Floating Action Button (FAB) library like clapping effect on Medium
 
 ![](https://raw.githubusercontent.com/wajahatkarim3/MediumClap-Android/master/art/demo_2.gif)
 
-### How-To Article
+### 📄 How-To Article
 Coming soon!
 
-## Changelog
+## ✔️ Changelog
 Changes exist in the [releases](https://github.com/wajahatkarim3/MediumClap-Android/releases) tab.
 
-## Installation
+## 💻 Installation
 Add this in your app's build.gradle file:
 ```groovy
 dependencies {
@@ -30,7 +30,7 @@ Or add ClapFab as a new dependency inside your pom.xml
 </dependency>
 ```
 
-## Usage
+## ❔ Usage
 
 ```xml
 <com.wajahatkarim3.clapfab.ClapFAB
@@ -50,7 +50,7 @@ Or add ClapFab as a new dependency inside your pom.xml
         app:cf_max_clap_count="20" />
 ```
 
-## Customization and Attributes
+## 🎨 Customization and Attributes
 
 All customizable attributes for ClapFab
 <table>
@@ -104,8 +104,7 @@ All customizable attributes for ClapFab
     </tr>
 </table>
 
-Clap Listener
----
+## Clap Listener
 ```java
 ClapFAB clapFAB = (ClapFAB) findViewById(R.id.clapFAB);
 clapFAB.setClapListener(new ClapFAB.OnClapListener() {
@@ -118,12 +117,12 @@ clapFAB.setClapListener(new ClapFAB.OnClapListener() {
         });
 ```
 
-Libraries Used
+📃 Libraries Used
 =============
 * ViewAnimator [https://github.com/florent37/ViewAnimator](https://github.com/florent37/ViewAnimator)
 * DotsView from Like Animation [https://github.com/jd-alexander/LikeButton](https://github.com/jd-alexander/LikeButton)
 
-Donations
+💰 Donations
 =============
 
 This project needs you! If you would like to support this project's further development, the creator of this project or the continuous maintenance of this project, feel free to donate. Your donation is highly appreciated (and I love food, coffee and beer). Thank you!
@@ -140,7 +139,7 @@ This project needs you! If you would like to support this project's further deve
 
 Of course, you can also choose what you want to donate, all donations are awesome!
 
-Developed By
+👨 Developed By
 ============
 ```
 Wajahat Karim
@@ -150,14 +149,14 @@ Wajahat Karim
 - Medium (http://www.medium.com/@wajahatkarim3)
 - LinkedIn (http://www.linkedin.com/in/wajahatkarim)
 
-# How to Contribute
+# 👍 How to Contribute
 1. Fork it
 2. Create your feature branch (git checkout -b my-new-feature)
 3. Commit your changes (git commit -am 'Add some feature')
 4. Push to the branch (git push origin my-new-feature)
 5. Create new Pull Request
 
-# License
+# 📃 License
 
     Copyright 2018 Wajahat Karim
 
