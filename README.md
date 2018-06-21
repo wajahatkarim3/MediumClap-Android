@@ -1,5 +1,5 @@
 # 👏 MediumClap-Android
-[ ![Download](https://api.bintray.com/packages/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/images/download.svg) ](https://bintray.com/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/_latestVersion) [![](https://img.shields.io/badge/MaterialUp-MediumClap-yellowgreen.svg)](https://www.uplabs.com/posts/medium-clap-android) [![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21) [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/wajahatkarim3)
+[ ![Download](https://api.bintray.com/packages/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/images/download.svg) ](https://bintray.com/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/_latestVersion) [![](https://img.shields.io/badge/MaterialUp-MediumClap-yellowgreen.svg)](https://www.uplabs.com/posts/medium-clap-android) [![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21) [![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]() [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/wajahatkarim3)
 
 A Custom Floating Action Button (FAB) library like clapping effect on Medium
 
