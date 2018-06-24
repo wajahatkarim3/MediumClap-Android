@@ -122,6 +122,7 @@ clapFAB.setClapListener(new ClapFAB.OnClapListener() {
 * DotsView from Like Animation [https://github.com/jd-alexander/LikeButton](https://github.com/jd-alexander/LikeButton)
 
 ## 💥 Achievements
+* #1 on [Github Trending in Kotlin](https://github.com/trending/kotlin?since=daily) language from 22nd June, 2018 to 24th June, 2018 
 * Featured in [Caster IO's](http://www.caster.io/) weekly #AndroidDev Digest in Week of June 22, 2018
 * Featured in [Infinum's](https://infinum.co/) weekly #AndroidSweets newsletter issue #4
  
