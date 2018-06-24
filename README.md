@@ -117,13 +117,11 @@ clapFAB.setClapListener(new ClapFAB.OnClapListener() {
         });
 ```
 
-📃 Libraries Used
-=============
+## 📃 Libraries Used
 * ViewAnimator [https://github.com/florent37/ViewAnimator](https://github.com/florent37/ViewAnimator)
 * DotsView from Like Animation [https://github.com/jd-alexander/LikeButton](https://github.com/jd-alexander/LikeButton)
 
-💰 Donations
-=============
+## 💰 Donations
 
 This project needs you! If you would like to support this project's further development, the creator of this project or the continuous maintenance of this project, feel free to donate. Your donation is highly appreciated (and I love food, coffee and beer). Thank you!
 
@@ -139,8 +137,8 @@ This project needs you! If you would like to support this project's further deve
 
 Of course, you can also choose what you want to donate, all donations are awesome!
 
-👨 Developed By
-============
+## 👨 Developed By
+
 ```
 Wajahat Karim
 ```
