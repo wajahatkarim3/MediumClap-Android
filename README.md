@@ -123,7 +123,7 @@ clapFAB.setClapListener(new ClapFAB.OnClapListener() {
 
 ## 💥 Achievements
 * #1 on [Github Trending in Kotlin](https://github.com/trending/kotlin?since=daily) language from 22nd June, 2018 to 24th June, 2018 
-* Featured in [Caster IO's](http://www.caster.io/) weekly #AndroidDev Digest in Week of June 22, 2018
+* Featured in [Caster IO's](http://www.caster.io/) weekly [#AndroidDev Digest](https://www.androiddevdigest.com/) in the [Issue #193](https://www.androiddevdigest.com/digest-193/)
 * Featured in [Infinum's](https://infinum.co/) weekly #AndroidSweets newsletter issue #4
 * Featured in Mindork's [Kotlin Weekly Update 44](https://medium.com/mindorks/kotlin-weekly-update-44-70b7969027f9)
 * Featured in [Android Weekly China's](https://androidweekly.cn/) Issue [#185](https://androidweekly.cn/android-dev-weekly-issue-185/)
