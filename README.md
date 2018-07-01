@@ -127,7 +127,7 @@ clapFAB.setClapListener(new ClapFAB.OnClapListener() {
 * Featured in [Infinum's](https://infinum.co/) weekly #AndroidSweets newsletter issue #4
 * Featured in Mindork's [Kotlin Weekly Update 44](https://medium.com/mindorks/kotlin-weekly-update-44-70b7969027f9)
 * Featured in [Android Weekly China's](https://androidweekly.cn/) Issue [#185](https://androidweekly.cn/android-dev-weekly-issue-185/)
-* Mentioned in an article about publishing libraries on jCenter 
+* Mentioned in an [article about publishing libraries on jCenter] 
  
 ## 💰 Donations
 
