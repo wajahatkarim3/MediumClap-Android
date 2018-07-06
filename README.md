@@ -6,6 +6,7 @@ A Custom Floating Action Button (FAB) library like clapping effect on Medium
 ![](https://raw.githubusercontent.com/wajahatkarim3/MediumClap-Android/master/art/demo_2.gif)
 
 ### 📄 How-To Article
+* https://android.jlelse.eu/publishing-your-android-kotlin-or-java-library-to-jcenter-from-android-studio-1b24977fe450
 
 ## ✔️ Changelog
 Changes exist in the [releases](https://github.com/wajahatkarim3/MediumClap-Android/releases) tab.
