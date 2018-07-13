@@ -3,33 +3,28 @@ package com.wajahatkarim3.clapfab
 import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.graphics.PorterDuff
-import android.graphics.drawable.ShapeDrawable
-import android.graphics.drawable.shapes.OvalShape
 import android.os.CountDownTimer
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.ImageViewCompat
 import android.util.AttributeSet
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
-import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.github.florent37.viewanimator.ViewAnimator
-import kotlin.math.max
 
 /**
  * Created by Wajahat Karim on 2/7/2018.
  * @author Wajahat Karim
  */
-class ClapFAB : RelativeLayout
+class ClapFAB
+@JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
+: RelativeLayout(context, attrs, defStyleAttr)
 {
-    private val TAG = ClapFAB::class.simpleName
+    private val TAG = ClapFAB::class.java.simpleName
 
     // Data Values
     private var clapCount = 0
@@ -103,13 +98,7 @@ class ClapFAB : RelativeLayout
      */
     var clapListener: OnClapListener? = null
 
-
-    constructor(context: Context) : this(context, null)
-
-    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
-
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
-    {
+    init {
         init(context, attrs)
     }
 
