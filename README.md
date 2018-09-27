@@ -2,6 +2,15 @@
 [ ![Download](https://api.bintray.com/packages/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/images/download.svg) ](https://bintray.com/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/_latestVersion) [![Build status](https://build.appcenter.ms/v0.1/apps/c7b7ac7b-34b7-4a0d-89b3-8c325cc047a7/branches/master/badge)](https://appcenter.ms) [![](https://img.shields.io/badge/Android%20Weekly-%23317-blue.svg)](https://androidweekly.net/issues/issue-317) [![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]() [![](https://img.shields.io/badge/MaterialUp-MediumClap-yellowgreen.svg)](https://www.uplabs.com/posts/medium-clap-android) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Medium%20Clap%20Button-green.svg?style=flat )]( https://android-arsenal.com/details/1/7031 )
 [![](https://img.shields.io/badge/Available%20On-ProductHunt-orange.svg)](https://www.producthunt.com/posts/medium-clap-button-in-android) [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/wajahatkarim3) [![Twitter](https://img.shields.io/twitter/url/https/github.com/wajahatkarim3/MediumClap-Android.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fwajahatkarim3%2FMediumClap-Android)
 
+<div align="center">
+  <sub>Built with ❤︎ by
+  <a href="https://twitter.com/WajahatKarim">Wajahat Karim</a> and
+  <a href="https://github.com/wajahatkarim3/EasyValidation/graphs/contributors">
+    contributors
+  </a>
+</div>
+<br/>
+
 A Custom Floating Action Button (FAB) library like clapping effect on Medium
 
 ![](https://raw.githubusercontent.com/wajahatkarim3/MediumClap-Android/master/art/demo_2.gif)
