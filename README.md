@@ -5,7 +5,7 @@
 <div align="center">
   <sub>Built with ❤︎ by
   <a href="https://twitter.com/WajahatKarim">Wajahat Karim</a> and
-  <a href="https://github.com/wajahatkarim3/EasyValidation/graphs/contributors">
+  <a href="https://github.com/wajahatkarim3/MediumClap-Android/graphs/contributors">
     contributors
   </a>
 </div>
