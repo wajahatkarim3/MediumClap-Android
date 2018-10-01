@@ -61,5 +61,12 @@
         app:layout_constraintStart_toEndOf="@+id/clapFAB"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.wajahatkarim3.clapfab.ClapFAB
+        android:id="@+id/clapFAB4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>
