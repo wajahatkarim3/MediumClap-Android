@@ -1,15 +1,11 @@
 package com.wajahatkarim3.mediumclap_android
 
-import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.databinding.DataBindingUtil
-import android.databinding.adapters.ViewGroupBindingAdapter.setListener
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.view.animation.AccelerateInterpolator
-import android.view.animation.DecelerateInterpolator
 import android.widget.Toast
 import com.wajahatkarim3.clapfab.ClapFAB
 import com.wajahatkarim3.mediumclap_android.databinding.ActivityMainBinding
@@ -17,9 +13,9 @@ import com.wajahatkarim3.mediumclap_android.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     lateinit var bi: ActivityMainBinding
-    var clapCount = 0
-    var isTranslateAnimActive = false
-    var isAlphaAnimActive = false
+    private var clapCount = 0
+    private var isTranslateAnimActive = false
+    private var isAlphaAnimActive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun onClapButtonClick()
+    private fun onClapButtonClick()
     {
         clapCount++
 
@@ -49,9 +45,9 @@ class MainActivity : AppCompatActivity() {
         showCircleCount()
     }
 
-    fun showCircleCount()
+    private fun showCircleCount()
     {
-        bi.txtCountCircle.text = "+" + clapCount.toString()
+        bi.txtCountCircle.text = "+$clapCount"
         bi.txtCountCircle.visibility = View.VISIBLE
         bi.txtCountCircle.y = bi.fabDemoClap.y
         bi.txtCountCircle.alpha = 1f
@@ -59,15 +55,15 @@ class MainActivity : AppCompatActivity() {
 
         if (isTranslateAnimActive) return
 
-        var showAnim = ObjectAnimator.ofFloat(bi.txtCountCircle, "translationY", -200f)
-        showAnim.setDuration(200)
+        val showAnim = ObjectAnimator.ofFloat(bi.txtCountCircle, "translationY", -200f)
+        showAnim.duration = 200
         showAnim.addListener(MyAnimatorListener{
             setOnAnimationEnd {
                 isTranslateAnimActive = false
             }
         })
 
-        var hideAnim = ObjectAnimator.ofFloat(bi.txtCountCircle, "alpha", 0f)
+        val hideAnim = ObjectAnimator.ofFloat(bi.txtCountCircle, "alpha", 0f)
         hideAnim.duration = 150
         hideAnim.startDelay = 200
         hideAnim.addListener(MyAnimatorListener{
@@ -86,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         isTranslateAnimActive = true
         isAlphaAnimActive = true
 
-        var animSet = AnimatorSet()
+        val animSet = AnimatorSet()
         animSet.playSequentially(showAnim, hideAnim)
         animSet.addListener(MyAnimatorListener{
             setOnAnimationEnd {
@@ -96,7 +92,7 @@ class MainActivity : AppCompatActivity() {
         animSet.start()
     }
 
-    fun resetCircleCountTextView()
+    private fun resetCircleCountTextView()
     {
         bi.txtCountCircle.y = bi.fabDemoClap.y
         bi.txtCountCircle.visibility = View.GONE
