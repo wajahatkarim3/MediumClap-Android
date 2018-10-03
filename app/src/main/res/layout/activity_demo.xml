@@ -40,11 +40,11 @@
         app:layout_constraintStart_toEndOf="@+id/clapFAB2"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Placed At Bottom Left -->
     <com.wajahatkarim3.clapfab.ClapFAB
         android:id="@+id/clapFAB3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         app:cf_count_circle_color="@color/colorPrimary"
         app:cf_count_text_color="@color/white_color"
@@ -55,12 +55,10 @@
         app:cf_filled_icon="@drawable/ic_favorite_black_24dp"
         app:cf_filled_icon_color="@color/colorPrimary"
         app:cf_max_clap_count="20"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/clapFAB"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
+    <!-- Placed At Bottom End -->
     <com.wajahatkarim3.clapfab.ClapFAB
         android:id="@+id/clapFAB4"
         android:layout_width="wrap_content"

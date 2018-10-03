@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ElevationStyle">
+        <item name="android:elevation">7dp</item>
+    </style>
+
+</resources>

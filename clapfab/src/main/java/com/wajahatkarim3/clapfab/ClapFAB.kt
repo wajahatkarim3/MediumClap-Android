@@ -4,10 +4,12 @@ import android.animation.ObjectAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.os.CountDownTimer
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.ImageViewCompat
+import android.support.v7.content.res.AppCompatResources
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
@@ -116,7 +118,7 @@ class ClapFAB
                 clapCount++
                 if (clapCount > 0)
                 {
-                    fabDemoClap.setImageDrawable(context.getDrawable(filledIconResId))
+                    fabDemoClap.setImageDrawable(getDrawable(filledIconResId))
                     ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(ContextCompat.getColor(context, filledIconColorRes)))
                 }
 
@@ -168,13 +170,13 @@ class ClapFAB
 
     private fun applyAttributes()
     {
-        fabDemoClap.setImageDrawable(context.getDrawable(defaultIconResId))
+        fabDemoClap.setImageDrawable(getDrawable(defaultIconResId))
         ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(ContextCompat.getColor(context, defaultIconColorRes)))
         txtCountCircle.setTextColor(ContextCompat.getColor(context, countTextColorRes))
         //txtCountCircle.setBackgroundColor(context.resources.getColor(countCircleColorRes))
 
         // Circle Count
-        var shapeDrawable = context.getDrawable(R.drawable.circle_shape_background)
+        var shapeDrawable = getDrawable(R.drawable.circle_shape_background)
         var ovalShape = shapeDrawable
         ovalShape.setColorFilter(ContextCompat.getColor(context, countCircleColorRes), PorterDuff.Mode.SRC_ATOP)
         txtCountCircle.background = shapeDrawable
@@ -323,4 +325,15 @@ class ClapFAB
     interface OnClapListener {
         fun onFabClapped(clapFab: ClapFAB, count: Int, isMaxReached: Boolean)
     }
+
+    /**
+     * Get Drawable object from resource Id, irrespective of vector or image resource.
+     *
+     * @param resId Drawable resource Id
+     * @return Drawable object from resource Id
+     */
+    private fun getDrawable(resId: Int): Drawable {
+        return AppCompatResources.getDrawable(context, resId)!!
+    }
+
 }

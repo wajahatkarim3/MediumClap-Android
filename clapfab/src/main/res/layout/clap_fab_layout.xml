@@ -2,22 +2,23 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="100dp"
-    android:layout_height="200dp">
+    android:layout_width="wrap_content"
+    android:layout_height="240dp"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txtCountCircle"
+        style="@style/ElevationStyle"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginBottom="48dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:background="@drawable/circle_shape_background"
-        android:elevation="7dp"
         android:gravity="center"
         android:text="+1"
-        android:textSize="13sp"
         android:textColor="@android:color/white"
+        android:textSize="13sp"
         android:visibility="gone"
         tools:visibility="visible" />
 
@@ -25,23 +26,20 @@
         android:id="@+id/fabDemoClap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="8dp"
         app:backgroundTint="@android:color/white"
-        tools:backgroundTint="@color/colorClapIcon"
-        app:elevation="4dp"
+        app:useCompatPadding="true"
+        app:elevation="7dp"
         app:fabSize="normal"
-        app:srcCompat="@drawable/ic_clap_hands_outline"/>
-
+        app:srcCompat="@drawable/ic_clap_hands_outline"
+        tools:backgroundTint="@color/colorClapIcon" />
 
     <com.wajahatkarim3.clapfab.DotsView
         android:id="@+id/dotsView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>
