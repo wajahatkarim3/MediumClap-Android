@@ -16,6 +16,12 @@ class DemoActivity : AppCompatActivity() {
         clapFAB2.clapListener = listener
         clapFAB3.clapListener = listener
         clapFAB4.clapListener = listener
+
+        //Set max clap count
+        clapFAB4.maxCount = 20000
+
+        //Set Default clap count
+        clapFAB4.setClapCount(9999)
     }
 
     private val listener = object : ClapFAB.OnClapListener{

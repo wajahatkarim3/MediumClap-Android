@@ -2,6 +2,8 @@
 <resources>
     <declare-styleable name="clap_fab">
         <attr name="cf_max_clap_count" format="integer"/>
+        <attr name="cf_clap_count" format="integer"/>
+        <attr name="cf_format_clap_count" format="boolean"/>
         <attr name="cf_default_icon" format="reference"/>
         <attr name="cf_filled_icon" format="reference"/>
         <attr name="cf_default_icon_color" format="reference"/>
