@@ -154,7 +154,7 @@ class ClapFAB
             typedArray.apply {
                 maxCount = getInt(R.styleable.clap_fab_cf_max_clap_count, 50)
                 clapCount = getInt(R.styleable.clap_fab_cf_clap_count, 0)
-                formatClapCount = getBoolean(R.styleable.clap_fab_cf_clap_count, true)
+                formatClapCount = getBoolean(R.styleable.clap_fab_cf_format_clap_count, true)
                 defaultIconResId = getResourceId(R.styleable.clap_fab_cf_default_icon, R.drawable.ic_clap_hands_outline)
                 filledIconResId = getResourceId(R.styleable.clap_fab_cf_filled_icon, R.drawable.ic_clap_hands_filled)
                 defaultIconColorRes = getResourceId(R.styleable.clap_fab_cf_default_icon_color, R.color.colorClapIcon)
