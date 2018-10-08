@@ -33,6 +33,7 @@ class ClapFAB
     private var isCirlceAvailable = false
     private var isHideAnimStopped = false
     private var hidingStarted = false
+    private var formatClapCount = true;
 
     // Animations
     private var fabScaleAnimation_1: ViewAnimator? = null
@@ -130,7 +131,11 @@ class ClapFAB
                 }
 
                 clapListener?.onFabClapped(this, clapCount, false)
-                txtCountCircle.text = "+$clapCount"
+                if(formatClapCount){
+                    txtCountCircle.text = NumberUtil.format(clapCount)
+                }else{
+                    txtCountCircle.text = "$clapCount"
+                }
 
                 playActualFabAnim()
             }
@@ -148,6 +153,8 @@ class ClapFAB
             val typedArray = context.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
             typedArray.apply {
                 maxCount = getInt(R.styleable.clap_fab_cf_max_clap_count, 50)
+                clapCount = getInt(R.styleable.clap_fab_cf_clap_count, 0)
+                formatClapCount = getBoolean(R.styleable.clap_fab_cf_format_clap_count, true)
                 defaultIconResId = getResourceId(R.styleable.clap_fab_cf_default_icon, R.drawable.ic_clap_hands_outline)
                 filledIconResId = getResourceId(R.styleable.clap_fab_cf_filled_icon, R.drawable.ic_clap_hands_filled)
                 defaultIconColorRes = getResourceId(R.styleable.clap_fab_cf_default_icon_color, R.color.colorClapIcon)
@@ -320,6 +327,17 @@ class ClapFAB
                     //circleHideMoveAnimation_4 = null
                 }
                 .start()
+    }
+
+    /**
+     * Set Default clap count
+     *
+     * @param count Default clap count. It can be greater than {@link maxCount}
+     */
+    fun setClapCount(count:Int){
+        if(clapCount<=maxCount){
+            clapCount = count
+        }
     }
 
     interface OnClapListener {

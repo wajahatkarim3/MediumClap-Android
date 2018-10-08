@@ -55,6 +55,8 @@
         app:cf_filled_icon="@drawable/ic_favorite_black_24dp"
         app:cf_filled_icon_color="@color/colorPrimary"
         app:cf_max_clap_count="20"
+        app:cf_format_clap_count="false"
+        app:cf_clap_count="10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -63,6 +65,7 @@
         android:id="@+id/clapFAB4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:cf_format_clap_count="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
