@@ -17,7 +17,7 @@ ext {
     siteUrl = 'https://github.com/wajahatkarim3/MediumClap-Android'
     gitUrl = 'https://github.com/wajahatkarim3/MediumClap-Android.git'
 
-    libraryVersion = '1.0.2'
+    libraryVersion = '1.0.4'
 
     developerId = 'wajahatkarim3'
     developerName = 'Wajahat Karim'
