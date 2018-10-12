@@ -25,7 +25,7 @@ Changes exist in the [releases](https://github.com/wajahatkarim3/MediumClap-Andr
 Add this in your app's build.gradle file:
 ```groovy
 dependencies {
-  implementation 'com.wajahatkarim3.clapfab:clapfab:1.0.3'
+  implementation 'com.wajahatkarim3.clapfab:clapfab:1.0.4'
 }
 ```
 
@@ -35,7 +35,7 @@ Or add ClapFab as a new dependency inside your pom.xml
 <dependency>
   <groupId>com.wajahatkarim3.clapfab</groupId>
   <artifactId>clapfab</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <type>pom</type>
 </dependency>
 ```
@@ -57,7 +57,9 @@ Or add ClapFab as a new dependency inside your pom.xml
         app:cf_dots_2_color="@color/colorAccent"
         app:cf_filled_icon="@drawable/ic_star_black_24dp"
         app:cf_filled_icon_color="@color/colorAccent"
-        app:cf_max_clap_count="20" />
+        app:cf_max_clap_count="20"
+        app:cf_clap_count="10"                           
+        app:cf_format_clap_count="true" />
 ```
 
 ## 🎨 Customization and Attributes
@@ -111,6 +113,16 @@ All customizable attributes for ClapFab
         <td>app:cf_dots_2_color</td>
         <td>@color/dotsColor2</td>
         <td>The color of particle's dots 2</td>
+    </tr>
+    <tr>
+        <td>app:cf_clap_count</td>
+        <td>0</td>
+        <td>The default clap count</td>
+    </tr>
+    <tr>
+        <td>app:cf_format_clap_count</td>
+        <td>true</td>
+        <td>True, if the formatter for clap count is enabled. Formatter will convert 1000 to 1.0K etc.</td>
     </tr>
 </table>
 
