@@ -6,11 +6,14 @@ import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.CountDownTimer
+import android.os.Handler
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.content.ContextCompat
 import android.support.v4.widget.ImageViewCompat
 import android.support.v7.content.res.AppCompatResources
 import android.util.AttributeSet
+import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
@@ -45,6 +48,18 @@ class ClapFAB
     private lateinit var txtCountCircle: TextView
     private lateinit var dotsView: DotsView
     private lateinit var fabDemoClap: FloatingActionButton
+
+    // Long tap down
+    private var tapDownRunnable: Runnable? = null
+    /**
+     * The interval to automatically clap on long press in milliseconds.
+     */
+    var longPressClapInterval: Long = 300
+
+    /**
+     * The flag to turn on/off the long press ability
+     */
+    var longPressClapEnabled = true
 
     /**
      * Maximum Claps Count. Can't be less than 1
@@ -140,6 +155,69 @@ class ClapFAB
                 playActualFabAnim()
             }
 
+            // Setting long click listener
+            fabDemoClap.setOnTouchListener { v, event ->
+                super.onTouchEvent(event)
+                Log.e("MC", "OnTouch")
+                if (!longPressClapEnabled)
+                {
+                    handler.removeCallbacks(tapDownRunnable)
+                    return@setOnTouchListener false
+                }
+
+                when(event.action)
+                {
+                    MotionEvent.ACTION_DOWN -> {
+
+                        tapDownRunnable = Runnable {
+                            // Clap effect goes here
+                            clapCount++
+                            if (clapCount > 0)
+                            {
+                                fabDemoClap.setImageDrawable(getDrawable(filledIconResId))
+                                ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(ContextCompat.getColor(context, filledIconColorRes)))
+                            }
+
+                            if (clapCount > maxCount)
+                            {
+                                clapCount = maxCount
+                                clapListener?.onFabClapped(this, clapCount, true)
+
+                                // Stop the runnable
+                                handler.removeCallbacks(tapDownRunnable)
+                            }
+                            else {
+                                // Repeat the timer
+                                handler.postDelayed(tapDownRunnable, longPressClapInterval)
+                            }
+
+                            clapListener?.onFabClapped(this, clapCount, false)
+                            if(formatClapCount){
+                                txtCountCircle.text = NumberUtil.format(clapCount)
+                            }else{
+                                txtCountCircle.text = "$clapCount"
+                            }
+
+                            playActualFabAnim()
+
+
+                        }
+                        // Start the timer handler
+                        handler.postDelayed(tapDownRunnable, longPressClapInterval)
+
+                        Log.e("MC", "OnTouch - ACTION_DOWN")
+                        return@setOnTouchListener  true
+                    }
+                    MotionEvent.ACTION_UP -> {
+                        // Stop the runnable
+                        handler.removeCallbacks(tapDownRunnable)
+                        return@setOnTouchListener  true
+                    }
+                }
+
+                return@setOnTouchListener false
+            }
+
             // Set Default Values Here
             maxCount = 50
             defaultIconResId = R.drawable.ic_clap_hands_outline
@@ -148,6 +226,8 @@ class ClapFAB
             filledIconColorRes = R.color.colorClapIcon
             countCircleColorRes = R.color.colorClapIcon
             countTextColorRes = R.color.white_color
+            longPressClapInterval = 300
+            longPressClapEnabled = true
 
             // Check for attributes
             val typedArray = context.obtainStyledAttributes(attributes, R.styleable.clap_fab, 0, 0)
@@ -163,6 +243,8 @@ class ClapFAB
                 countTextColorRes = getResourceId(R.styleable.clap_fab_cf_count_text_color, R.color.white_color)
                 dots1ColorRes = getResourceId(R.styleable.clap_fab_cf_dots_1_color, R.color.dotsColor1)
                 dots2ColorRes = getResourceId(R.styleable.clap_fab_cf_dots_2_color, R.color.dotsColor2)
+                longPressClapEnabled = getBoolean(R.styleable.clap_fab_cf_long_press_enabled, true)
+                longPressClapInterval = getInteger(R.styleable.clap_fab_cf_long_press_clap_interval, 300).toLong()
             }
 
             // Apply Attributes
@@ -189,6 +271,11 @@ class ClapFAB
         txtCountCircle.background = shapeDrawable
         txtCountCircle.setTextColor(ContextCompat.getColor(context, countTextColorRes))
         txtCountCircle.setTextColor(ColorStateList.valueOf(ContextCompat.getColor(context, countTextColorRes)))
+
+    }
+
+    private fun runClickBehaviour()
+    {
 
     }
 
