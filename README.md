@@ -25,7 +25,7 @@ Changes exist in the [releases](https://github.com/wajahatkarim3/MediumClap-Andr
 Add this in your app's build.gradle file:
 ```groovy
 dependencies {
-  implementation 'com.wajahatkarim3.clapfab:clapfab:1.0.4'
+  implementation 'com.wajahatkarim3.clapfab:clapfab:1.0.5'
 }
 ```
 
@@ -35,7 +35,7 @@ Or add ClapFab as a new dependency inside your pom.xml
 <dependency>
   <groupId>com.wajahatkarim3.clapfab</groupId>
   <artifactId>clapfab</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <type>pom</type>
 </dependency>
 ```
@@ -59,7 +59,9 @@ Or add ClapFab as a new dependency inside your pom.xml
         app:cf_filled_icon_color="@color/colorAccent"
         app:cf_max_clap_count="20"
         app:cf_clap_count="10"                           
-        app:cf_format_clap_count="true" />
+        app:cf_format_clap_count="true"
+        app:cf_long_press_enabled="false"
+        app:cf_long_press_clap_interval="300"/>
 ```
 
 ## 🎨 Customization and Attributes
@@ -123,6 +125,16 @@ All customizable attributes for ClapFab
         <td>app:cf_format_clap_count</td>
         <td>true</td>
         <td>True, if the formatter for clap count is enabled. Formatter will convert 1000 to 1.0K etc.</td>
+    </tr>
+    <tr>
+        <td>app:cf_long_press_enabled</td>
+        <td>true</td>
+        <td>The flag to turn on/off the long press auto-clap ability. Default is true.</td>
+    </tr>
+    <tr>
+        <td>app:cf_long_press_clap_interval</td>
+        <td>300</td>
+        <td>The interval to automatically clap on long press in milliseconds. Default is 300ms</td>
     </tr>
 </table>
 
