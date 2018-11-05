@@ -12,5 +12,7 @@
         <attr name="cf_count_text_color" format="reference"/>
         <attr name="cf_dots_1_color" format="reference"/>
         <attr name="cf_dots_2_color" format="reference"/>
+        <attr name="cf_long_press_enabled" format="boolean"/>
+        <attr name="cf_long_press_clap_interval" format="integer"/>
     </declare-styleable>
 </resources>

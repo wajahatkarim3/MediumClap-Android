@@ -34,6 +34,7 @@
         app:cf_filled_icon="@drawable/ic_star_black_24dp"
         app:cf_filled_icon_color="@color/colorAccent"
         app:cf_max_clap_count="20"
+        app:cf_long_press_enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/clapFAB3"
         app:layout_constraintHorizontal_bias="0.5"
@@ -57,6 +58,7 @@
         app:cf_max_clap_count="20"
         app:cf_format_clap_count="false"
         app:cf_clap_count="10"
+        app:cf_long_press_clap_interval="200"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
