@@ -155,68 +155,75 @@ class ClapFAB
                 playActualFabAnim()
             }
 
+
             // Setting long click listener
-            fabDemoClap.setOnTouchListener { v, event ->
-                super.onTouchEvent(event)
-                Log.e("MC", "OnTouch")
-                if (!longPressClapEnabled)
-                {
-                    handler.removeCallbacks(tapDownRunnable)
+            if (longPressClapEnabled)
+            {
+                fabDemoClap.setOnTouchListener { v, event ->
+                    super.onTouchEvent(event)
+                    Log.e("MC", "OnTouch")
+                    if (!longPressClapEnabled)
+                    {
+                        handler.removeCallbacks(tapDownRunnable)
+                        return@setOnTouchListener false
+                    }
+
+                    when(event.action)
+                    {
+                        MotionEvent.ACTION_DOWN -> {
+
+                            tapDownRunnable = Runnable {
+                                // Clap effect goes here
+                                clapCount++
+                                if (clapCount > 0)
+                                {
+                                    fabDemoClap.setImageDrawable(getDrawable(filledIconResId))
+                                    ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(ContextCompat.getColor(context, filledIconColorRes)))
+                                }
+
+                                if (clapCount > maxCount)
+                                {
+                                    clapCount = maxCount
+                                    clapListener?.onFabClapped(this, clapCount, true)
+
+                                    // Stop the runnable
+                                    handler.removeCallbacks(tapDownRunnable)
+                                }
+                                else {
+                                    // Repeat the timer
+                                    handler.postDelayed(tapDownRunnable, longPressClapInterval)
+                                }
+
+                                clapListener?.onFabClapped(this, clapCount, false)
+                                if(formatClapCount){
+                                    txtCountCircle.text = NumberUtil.format(clapCount)
+                                }else{
+                                    txtCountCircle.text = "$clapCount"
+                                }
+
+                                playActualFabAnim()
+
+
+                            }
+                            // Start the timer handler
+                            handler.postDelayed(tapDownRunnable, longPressClapInterval)
+
+                            Log.e("MC", "OnTouch - ACTION_DOWN")
+                            return@setOnTouchListener  false
+                        }
+                        MotionEvent.ACTION_UP -> {
+                            // Stop the runnable
+                            handler.removeCallbacks(tapDownRunnable)
+                            return@setOnTouchListener  false
+                        }
+                    }
+
                     return@setOnTouchListener false
                 }
-
-                when(event.action)
-                {
-                    MotionEvent.ACTION_DOWN -> {
-
-                        tapDownRunnable = Runnable {
-                            // Clap effect goes here
-                            clapCount++
-                            if (clapCount > 0)
-                            {
-                                fabDemoClap.setImageDrawable(getDrawable(filledIconResId))
-                                ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(ContextCompat.getColor(context, filledIconColorRes)))
-                            }
-
-                            if (clapCount > maxCount)
-                            {
-                                clapCount = maxCount
-                                clapListener?.onFabClapped(this, clapCount, true)
-
-                                // Stop the runnable
-                                handler.removeCallbacks(tapDownRunnable)
-                            }
-                            else {
-                                // Repeat the timer
-                                handler.postDelayed(tapDownRunnable, longPressClapInterval)
-                            }
-
-                            clapListener?.onFabClapped(this, clapCount, false)
-                            if(formatClapCount){
-                                txtCountCircle.text = NumberUtil.format(clapCount)
-                            }else{
-                                txtCountCircle.text = "$clapCount"
-                            }
-
-                            playActualFabAnim()
-
-
-                        }
-                        // Start the timer handler
-                        handler.postDelayed(tapDownRunnable, longPressClapInterval)
-
-                        Log.e("MC", "OnTouch - ACTION_DOWN")
-                        return@setOnTouchListener  true
-                    }
-                    MotionEvent.ACTION_UP -> {
-                        // Stop the runnable
-                        handler.removeCallbacks(tapDownRunnable)
-                        return@setOnTouchListener  true
-                    }
-                }
-
-                return@setOnTouchListener false
             }
+
+
+
 
             // Set Default Values Here
             maxCount = 50
