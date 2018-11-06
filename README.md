@@ -25,7 +25,7 @@ Changes exist in the [releases](https://github.com/wajahatkarim3/MediumClap-Andr
 Add this in your app's build.gradle file:
 ```groovy
 dependencies {
-  implementation 'com.wajahatkarim3.clapfab:clapfab:1.0.5'
+  implementation 'com.wajahatkarim3.clapfab:clapfab:1.0.6'
 }
 ```
 
@@ -35,7 +35,7 @@ Or add ClapFab as a new dependency inside your pom.xml
 <dependency>
   <groupId>com.wajahatkarim3.clapfab</groupId>
   <artifactId>clapfab</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
   <type>pom</type>
 </dependency>
 ```
