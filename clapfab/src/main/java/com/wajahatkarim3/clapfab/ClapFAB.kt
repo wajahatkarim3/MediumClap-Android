@@ -7,10 +7,6 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.CountDownTimer
 import android.os.Handler
-import android.support.design.widget.FloatingActionButton
-import android.support.v4.content.ContextCompat
-import android.support.v4.widget.ImageViewCompat
-import android.support.v7.content.res.AppCompatResources
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
@@ -19,7 +15,11 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
 import com.github.florent37.viewanimator.ViewAnimator
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 /**
  * Created by Wajahat Karim on 2/7/2018.
@@ -135,7 +135,8 @@ class ClapFAB
                 if (clapCount > 0)
                 {
                     fabDemoClap.setImageDrawable(getDrawable(filledIconResId))
-                    ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(ContextCompat.getColor(context, filledIconColorRes)))
+                    ImageViewCompat.setImageTintList(fabDemoClap, ColorStateList.valueOf(
+                        ContextCompat.getColor(context, filledIconColorRes)))
                 }
 
                 if (clapCount > maxCount)

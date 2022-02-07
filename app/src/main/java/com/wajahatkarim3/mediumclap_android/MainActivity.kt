@@ -2,30 +2,25 @@ package com.wajahatkarim3.mediumclap_android
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.wajahatkarim3.clapfab.ClapFAB
-import com.wajahatkarim3.mediumclap_android.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.txtCountCircle
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var bi: ActivityMainBinding
     private var clapCount = 0
     private var isTranslateAnimActive = false
     private var isAlphaAnimActive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        bi.fabDemoClap.setOnClickListener {
-            onClapButtonClick()
-        }
-        bi.fabDemoClap.visibility = View.GONE
+        setContentView(R.layout.activity_main)
 
-        bi.clapFab.clapListener = object : ClapFAB.OnClapListener{
+        clapFab.clapListener = object : ClapFAB.OnClapListener{
             override fun onFabClapped(clapFab: ClapFAB, count: Int, isMaxReached: Boolean) {
                 Toast.makeText(this@MainActivity, "Clapped: $count with $isMaxReached" , Toast.LENGTH_LONG).show()
             }
@@ -39,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         // Update clap icon depending on clap count
         if (clapCount > 0)
         {
-            bi.fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
+            fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
         }
 
         showCircleCount()
@@ -47,15 +42,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun showCircleCount()
     {
-        bi.txtCountCircle.text = "+$clapCount"
-        bi.txtCountCircle.visibility = View.VISIBLE
-        bi.txtCountCircle.y = bi.fabDemoClap.y
-        bi.txtCountCircle.alpha = 1f
+        txtCountCircle.text = "+$clapCount"
+        txtCountCircle.visibility = View.VISIBLE
+        txtCountCircle.y = fabDemoClap.y
+        txtCountCircle.alpha = 1f
         
 
         if (isTranslateAnimActive) return
 
-        val showAnim = ObjectAnimator.ofFloat(bi.txtCountCircle, "translationY", -200f)
+        val showAnim = ObjectAnimator.ofFloat(txtCountCircle, "translationY", -200f)
         showAnim.duration = 200
         showAnim.addListener(MyAnimatorListener{
             setOnAnimationEnd {
@@ -63,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        val hideAnim = ObjectAnimator.ofFloat(bi.txtCountCircle, "alpha", 0f)
+        val hideAnim = ObjectAnimator.ofFloat(txtCountCircle, "alpha", 0f)
         hideAnim.duration = 150
         hideAnim.startDelay = 200
         hideAnim.addListener(MyAnimatorListener{
@@ -94,8 +89,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun resetCircleCountTextView()
     {
-        bi.txtCountCircle.y = bi.fabDemoClap.y
-        bi.txtCountCircle.visibility = View.GONE
-        bi.txtCountCircle.alpha = 1f
+        txtCountCircle.y = fabDemoClap.y
+        txtCountCircle.visibility = View.GONE
+        txtCountCircle.alpha = 1f
     }
 }

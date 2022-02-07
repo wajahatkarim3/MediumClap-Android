@@ -1,27 +1,18 @@
 package com.wajahatkarim3.mediumclap_android
 
 import android.animation.ObjectAnimator
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
-import android.widget.FrameLayout
-import android.widget.TextView
-import com.github.florent37.viewanimator.AnimationBuilder
+import androidx.appcompat.app.AppCompatActivity
 import com.github.florent37.viewanimator.ViewAnimator
 import com.wajahatkarim3.clapfab.DotsView
-import com.wajahatkarim3.mediumclap_android.databinding.ActivityExampleBinding
 import kotlinx.android.synthetic.main.activity_example.*
-import java.util.*
 
 class ExampleActivity : AppCompatActivity() {
 
-    lateinit var bi: ActivityExampleBinding
     var clapCount = 0
     var isCirlceAvailable = false
 
@@ -38,17 +29,17 @@ class ExampleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_example)
+        setContentView(R.layout.activity_example)
 
         initDots()
 
-        bi.fabDemoClap.setOnClickListener {
+        fabDemoClap.setOnClickListener {
 
             clapCount++
-            bi.txtCountCircle.text = "+$clapCount"
+            txtCountCircle.text = "+$clapCount"
             if (clapCount > 0)
             {
-                bi.fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
+                fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
             }
 
             playActualFabAnim()
@@ -100,10 +91,10 @@ class ExampleActivity : AppCompatActivity() {
     fun fabScaleUpAnimation()
     {
         fabScaleAnimation_1 = ViewAnimator
-                .animate(bi.fabDemoClap)
+                .animate(fabDemoClap)
                     .scale(1f, 1.2f)
                     .duration(70)
-                .thenAnimate(bi.fabDemoClap)
+                .thenAnimate(fabDemoClap)
                     .scale(1.2f, 1.0f)
                     .duration(70)
                 .start()
@@ -114,11 +105,11 @@ class ExampleActivity : AppCompatActivity() {
 
     fun circleShowMoveUpAnimation()
     {
-        bi.txtCountCircle.visibility = View.VISIBLE
-        bi.txtCountCircle.y = bi.fabDemoClap.y + bi.fabDemoClap.height/2
-        bi.txtCountCircle.alpha = 0f
+        txtCountCircle.visibility = View.VISIBLE
+        txtCountCircle.y = fabDemoClap.y + fabDemoClap.height/2
+        txtCountCircle.alpha = 0f
         circleShowMoveUpAnimation_2 = ViewAnimator
-                .animate(bi.txtCountCircle)
+                .animate(txtCountCircle)
                 .dp().translationY(0f, -70f)
                 .interpolator(DecelerateInterpolator())
                 .alpha(0f, 1f)
@@ -136,10 +127,10 @@ class ExampleActivity : AppCompatActivity() {
     fun circleScaleAnimation()
     {
         circleScaleAnimation_3 = ViewAnimator
-                .animate(bi.txtCountCircle)
+                .animate(txtCountCircle)
                 .scale(1f, 1.2f)
                 .duration(70)
-                .thenAnimate(bi.txtCountCircle)
+                .thenAnimate(txtCountCircle)
                 .scale(1.2f, 1.0f)
                 .duration(70)
                 .onStop {
@@ -176,7 +167,7 @@ class ExampleActivity : AppCompatActivity() {
     {
         circleHideMoveAnimation_4?.cancel()
         circleHideMoveAnimation_4 = ViewAnimator
-                .animate(bi.txtCountCircle)
+                .animate(txtCountCircle)
                 .alpha(1f, 0f)
                 .dp().translationY( -70f, -140f)
                 .duration(400)
@@ -207,19 +198,19 @@ class ExampleActivity : AppCompatActivity() {
             return
 
         // Update clap icon depending on clap count
-        bi.txtCountCircle.text = "+$clapCount"
+        txtCountCircle.text = "+$clapCount"
         if (clapCount > 0)
         {
-            bi.fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
+            fabDemoClap.setImageResource(R.drawable.ic_clap_hands_filled)
         }
 
         // 1. Scale Up FAB Button On Each Click
         ViewAnimator
-                .animate(bi.fabDemoClap)
+                .animate(fabDemoClap)
                     .scale(1f, 1.2f)
                     .duration(70)
                     //.interpolator(AccelerateDecelerateInterpolator())
-                .thenAnimate(bi.fabDemoClap)
+                .thenAnimate(fabDemoClap)
                     .scale(1.2f, 1.0f)
                     .duration(70)
                     //.interpolator(AccelerateDecelerateInterpolator())
@@ -228,15 +219,15 @@ class ExampleActivity : AppCompatActivity() {
         // 2. Show and move count text circle from button
 
         // Reset Circle Text State
-        bi.txtCountCircle.visibility = View.VISIBLE
-        bi.txtCountCircle.y = bi.fabDemoClap.y + bi.fabDemoClap.height/2
-        bi.txtCountCircle.alpha = 0f
+        txtCountCircle.visibility = View.VISIBLE
+        txtCountCircle.y = fabDemoClap.y + fabDemoClap.height/2
+        txtCountCircle.alpha = 0f
 
         if (!isCirlceAvailable)
         {
             // Animate Text up
             textMoveUpAnimator = ViewAnimator
-                    .animate(bi.txtCountCircle)
+                    .animate(txtCountCircle)
                     .dp().translationY(0f, -70f)
                     .interpolator(DecelerateInterpolator())
                     .alpha(0f, 1f)
@@ -249,7 +240,7 @@ class ExampleActivity : AppCompatActivity() {
                     .start()
 
             // Hide Circle Anim
-            hideAnimator = ViewAnimator.animate(bi.txtCountCircle)
+            hideAnimator = ViewAnimator.animate(txtCountCircle)
                     .alpha(1f, 0f)
                     .dp().translationY( -70f, -140f)
                     .duration(500)
@@ -263,18 +254,18 @@ class ExampleActivity : AppCompatActivity() {
         else
         {
             // Scale up Circle Text
-            bi.txtCountCircle.alpha = 1f
+            txtCountCircle.alpha = 1f
             ViewAnimator
-                    .animate(bi.txtCountCircle)
+                    .animate(txtCountCircle)
                         .scale(1f, 1.2f)
                         .duration(70)
-                    .thenAnimate(bi.txtCountCircle)
+                    .thenAnimate(txtCountCircle)
                         .scale(1.2f, 1.0f)
                         .duration(70)
                     .onStop {
 
                         // Hide Circle Anim
-                        hideAnimator = ViewAnimator.animate(bi.txtCountCircle)
+                        hideAnimator = ViewAnimator.animate(txtCountCircle)
                                 .alpha(1f, 0f)
                                 .dp().translationY( -70f, -140f)
                                 .duration(500)

@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.wajahatkarim3.mediumclap_android.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wajahatkarim3.mediumclap_android.MainActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fabDemoClap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp"
-            app:backgroundTint="@android:color/white"
-            app:elevation="4dp"
-            app:fabSize="normal"
-            app:srcCompat="@drawable/ic_clap_hands_outline"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabDemoClap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        app:backgroundTint="@android:color/white"
+        app:elevation="4dp"
+        app:fabSize="normal"
+        app:srcCompat="@drawable/ic_clap_hands_outline"/>
 
-        <TextView
-            android:id="@+id/txtCountCircle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/circle_shape_background"
-            android:elevation="7dp"
-            android:gravity="center"
-            android:text="+1"
-            android:textSize="13sp"
-            android:textColor="@android:color/white"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="@+id/fabDemoClap"
-            app:layout_constraintEnd_toEndOf="@+id/fabDemoClap"
-            app:layout_constraintStart_toStartOf="@+id/fabDemoClap"
-            app:layout_constraintTop_toTopOf="@+id/fabDemoClap"
-            tools:visibility="visible" />
+    <TextView
+        android:id="@+id/txtCountCircle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/circle_shape_background"
+        android:elevation="7dp"
+        android:gravity="center"
+        android:text="+1"
+        android:textSize="13sp"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/fabDemoClap"
+        app:layout_constraintEnd_toEndOf="@+id/fabDemoClap"
+        app:layout_constraintStart_toStartOf="@+id/fabDemoClap"
+        app:layout_constraintTop_toTopOf="@+id/fabDemoClap"
+        tools:visibility="visible" />
 
-        <com.wajahatkarim3.clapfab.ClapFAB
-            android:id="@+id/clapFab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="140dp"
-            app:cf_max_clap_count="20"
-            app:cf_default_icon="@drawable/ic_star_border_black_24dp"
-            app:cf_filled_icon="@drawable/ic_star_black_24dp"
-            app:cf_default_icon_color="@color/colorAccent"
-            app:cf_filled_icon_color="@color/dotsColor2"
-            app:cf_count_text_color="@color/white_color"
-            app:cf_count_circle_color="@color/colorAccent"
-            app:cf_dots_1_color="@android:color/holo_green_dark"
-            app:cf_dots_2_color="@android:color/tertiary_text_dark"
-            />
+    <com.wajahatkarim3.clapfab.ClapFAB
+        android:id="@+id/clapFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="140dp"
+        app:cf_max_clap_count="20"
+        app:cf_default_icon="@drawable/ic_star_border_black_24dp"
+        app:cf_filled_icon="@drawable/ic_star_black_24dp"
+        app:cf_default_icon_color="@color/colorAccent"
+        app:cf_filled_icon_color="@color/dotsColor2"
+        app:cf_count_text_color="@color/white_color"
+        app:cf_count_circle_color="@color/colorAccent"
+        app:cf_dots_1_color="@android:color/holo_green_dark"
+        app:cf_dots_2_color="@android:color/tertiary_text_dark"
+        />
 
 
-    </android.support.constraint.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
