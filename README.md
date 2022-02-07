@@ -1,5 +1,5 @@
 # 👏 MediumClap-Android
-[ ![Download](https://api.bintray.com/packages/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/images/download.svg) ](https://bintray.com/wajahatkarim3/ClapFab/com.wajahatkarim3.clapfab/_latestVersion) [![Build status](https://build.appcenter.ms/v0.1/apps/c7b7ac7b-34b7-4a0d-89b3-8c325cc047a7/branches/master/badge)](https://appcenter.ms) [![](https://img.shields.io/badge/Android%20Weekly-%23317-blue.svg)](https://androidweekly.net/issues/issue-317) [![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]() [![](https://img.shields.io/badge/MaterialUp-MediumClap-yellowgreen.svg)](https://www.uplabs.com/posts/medium-clap-android) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Medium%20Clap%20Button-green.svg?style=flat )]( https://android-arsenal.com/details/1/7031 )
+[![Build status](https://build.appcenter.ms/v0.1/apps/c7b7ac7b-34b7-4a0d-89b3-8c325cc047a7/branches/master/badge)](https://appcenter.ms) [![](https://img.shields.io/badge/Android%20Weekly-%23317-blue.svg)](https://androidweekly.net/issues/issue-317) [![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]() [![](https://img.shields.io/badge/MaterialUp-MediumClap-yellowgreen.svg)](https://www.uplabs.com/posts/medium-clap-android) [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-Medium%20Clap%20Button-green.svg?style=flat )]( https://android-arsenal.com/details/1/7031 )
 [![](https://img.shields.io/badge/Available%20On-ProductHunt-orange.svg)](https://www.producthunt.com/posts/medium-clap-button-in-android) [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/wajahatkarim3) [![Twitter](https://img.shields.io/twitter/url/https/github.com/wajahatkarim3/MediumClap-Android.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fwajahatkarim3%2FMediumClap-Android)
 
 <div align="center">
@@ -25,7 +25,7 @@ Changes exist in the [releases](https://github.com/wajahatkarim3/MediumClap-Andr
 Add this in your app's build.gradle file:
 ```groovy
 dependencies {
-  implementation 'com.wajahatkarim3.clapfab:clapfab:1.0.6'
+  implementation 'com.wajahatkarim:clapfab:2.0.0'
 }
 ```
 
@@ -33,9 +33,9 @@ Or add ClapFab as a new dependency inside your pom.xml
 
 ```xml
 <dependency>
-  <groupId>com.wajahatkarim3.clapfab</groupId>
+  <groupId>com.wajahatkarim3</groupId>
   <artifactId>clapfab</artifactId>
-  <version>1.0.6</version>
+  <version>2.0.0</version>
   <type>pom</type>
 </dependency>
 ```
@@ -198,7 +198,7 @@ Wajahat Karim
 
 # 📃 License
 
-    Copyright 2018 Wajahat Karim
+    Copyright 2022 Wajahat Karim
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
